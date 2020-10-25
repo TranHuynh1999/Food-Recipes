@@ -25,39 +25,10 @@ namespace FoodRecipes
             public MainWindow()
             {
                 InitializeComponent();
-            }
-            class Food
-            {
-                public string Name { get; set; }
-                public string Avatar { get; set; }
-
-            }
-            class FoodDAO
-            {
-                public static BindingList<Food> GetAllFood()
-                {
-                    var result = new BindingList<Food>()
-                {
-                    new Food() { Name = "Bach Tuoc Ngam sa", Avatar = "/Images/Bachtuocngamsa.jpg"},
-                    new Food() { Name = "Ca nuc kho nuoc dua", Avatar = "/Images/Canuckhonuocdua.jpg" },
-                    new Food() { Name = "Chan gio ham", Avatar = "/Images/Changioham.jpg" },
-                    new Food() { Name = "Dau hu sot nam huong", Avatar = "/Images/Dauhusotnamhuong.jpg" },
-                    new Food() { Name = "Ga chien han quoc", Avatar = "/Images/Gachienhanquoc.jpg" },
-                    new Food() { Name = "Muc xao sot cay", Avatar = "/Images/Mucxaosotcay.jpg" },
-                    new Food() { Name = "Nui sot tom", Avatar = "/Images/Nuisottom.jpg" },
-                    new Food() { Name = "Thit ga hap nam huong", Avatar = "/Images/Thitgahapnamhuong.jpg" },
-                    new Food() { Name = "Tom rang muoi tieu", Avatar = "/Images/Tomrangmuoitieu.jpg" }
-                };
-                    return result;
-                }
-            }
-            BindingList<Food> _listFood = new BindingList<Food>();
-
-            private void BindingFood(object sender, RoutedEventArgs e)
-            {
-                _listFood = FoodDAO.GetAllFood();
-                DataListview.ItemsSource = _listFood;
-            }
+                //GridPrincipal.Children.Clear();
+                //GridPrincipal.Children.Add(new Home());
+        }
+           
 
         private void ButtonFechar_Click(object sender, RoutedEventArgs e)
         {
@@ -68,12 +39,28 @@ namespace FoodRecipes
         {
             int index = ListViewMenu.SelectedIndex;
             MoveCursorMenu(index);
+            switch(index)
+            {
+                case 0:
+                    GridPrincipal.Children.Clear();
+                    GridPrincipal.Children.Add(new Home());
+                    break;
+                case 1:
+                    GridPrincipal.Children.Clear();
+                    GridPrincipal.Children.Add(new Favorite());
+                    break;
+                case 2:
+                    GridPrincipal.Children.Clear();
+                    GridPrincipal.Children.Add(new NewRecipe());
+                    break;
+                default:
+                    break;
+            }    
         }
 
         private void MoveCursorMenu(int index)
         {
             TransitioningContenSlide.OnApplyTemplate();
-            GridCorsor.Margin = new Thickness(0,(100+(60*index)),0,0);
         }
 
         private void ButtonOpen_Click(object sender, RoutedEventArgs e)
