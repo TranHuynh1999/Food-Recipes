@@ -21,7 +21,7 @@ namespace FoodRecipes
     /// </summary>
     public partial class Home : UserControl
     {
-        private int itemPerPage =25 ;
+        private int itemPerPage =10 ;
         private int currentPage = 0;
         private int totalItem;
         private int totalPage;

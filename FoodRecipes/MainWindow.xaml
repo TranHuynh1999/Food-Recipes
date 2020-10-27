@@ -6,7 +6,7 @@
           xmlns:marterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:FoodRecipes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"  WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="CanResize">
+        Title="MainWindow" Height="450" Width="800"  WindowStyle="None" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="CanResize">
     <Window.Resources>
         <Storyboard x:Key="openMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="GridMenu">
@@ -92,28 +92,40 @@
                     </ListViewItem>
                 </ListView>
             </StackPanel>
-            <Button x:Name="ButtonClose" HorizontalAlignment="Right" VerticalAlignment="Top"  BorderBrush="{x:Null}" Width="40" Height="40" Foreground="Black" Background="White" Padding="0" Margin="0,0,10,0" Click="ButtonClose_Click">
+            <Button x:Name="ButtonClose" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="{x:Null}" Width="40" Height="40" Foreground="Black" Background="White" Padding="0" Margin="0,0,10,0" Click="ButtonClose_Click">
                 <marterialDesign:PackIcon Kind="Close"/>
             </Button>
         </Grid>
         
-        <WrapPanel x:Name="MainData">
-            <StackPanel x:Name="Header"  Orientation="Horizontal">
+        <Grid x:Name="MainData" Background="Red">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="4*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Row="0" Grid.Column="0" x:Name="Header"  Orientation="Horizontal">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 0 40 0">
                     <Button x:Name="ButtonOpen" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Width="50" Height="50" Padding="0" Click="ButtonOpen_Click">
                         <marterialDesign:PackIcon Kind="Menu" Foreground="#FF313131" Width="40" Height="40" Margin="10"></marterialDesign:PackIcon>
                     </Button>
                 </StackPanel>
-                
+
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10 0 20 0">
                     <TextBox Width="300" Height="40" marterialDesign:HintAssist.Hint="Search" marterialDesign:HintAssist.IsFloating="True" Margin="10 0 0 0" >
                     </TextBox>
                     <marterialDesign:PackIcon Kind="Search" Width="30" Height="30" Margin="15"></marterialDesign:PackIcon>
                 </StackPanel>
             </StackPanel>
-            <Grid x:Name="GridPrincipal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.IsSharedSizeScope="True">
-            </Grid>
-        </WrapPanel>
+
+            <StackPanel x:Name="GridPrincipal" Grid.Row="1" Grid.Column="0">
+                <!--<Grid x:Name="GridPrincipal" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                </Grid>-->
+            </StackPanel>
+            
+        </Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  >
             <Button x:Name="ButtonFechar" Width="40" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray"  Margin="0 0 10 0" Click="ButtonFechar_Click" VerticalAlignment="Top">
                 <marterialDesign:PackIcon Kind="Power" Width="30" Height="30" ></marterialDesign:PackIcon>

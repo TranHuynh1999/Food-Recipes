@@ -8,33 +8,55 @@
              d:DesignHeight="450" d:DesignWidth="800" Background="AliceBlue" Loaded="BindingFood">
 
     <Grid>
-        <DockPanel>
-            <ListView x:Name="DataListview" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" DockPanel.Dock="Top">
-                <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel Margin="30,0,30,0"></WrapPanel>
-                    </ItemsPanelTemplate>
-                </ListView.ItemsPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition>
+            </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <WrapPanel Orientation="Vertical">
+                <ListView x:Name="DataListview" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Margin="30,0,30,0"></WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
 
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <materialDesign:Card Cursor="Hand" UniformCornerRadius="10" Margin="0" Padding="0" Width="200">
-                            <StackPanel Background="white">
-                                <Image Height="150" Width="200" Source="{Binding Avatar}" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
-                                <TextBlock Text="{Binding Name}" Foreground="Black"></TextBlock>
-                            </StackPanel>
-                        </materialDesign:Card>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom">
-                <Button Style="{StaticResource MaterialDesignRaisedButton}" Width="100" ToolTip="Resource name: MaterialDesignRaiseButton" 
-                 Click="NextPageClick">Next</Button>
-                <Button Style="{StaticResource MaterialDesignRaisedButton}" Width="100" ToolTip="Resource name: MaterialDesignRaiseButton" 
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <materialDesign:Card Cursor="Hand" UniformCornerRadius="10" Margin="0" Padding="0" Width="200">
+                                <StackPanel Background="white">
+                                    <Image Height="150" Width="200" Source="{Binding Avatar}" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+                                    <TextBlock Text="{Binding Name}" Foreground="Black"></TextBlock>
+                                </StackPanel>
+                            </materialDesign:Card>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </WrapPanel>
+                
+         
+
+
+          
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0">
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" Width="100" ToolTip="Resource name: MaterialDesignRaiseButton" 
                  Click="PreviousPageClick">Previous</Button>
-            </StackPanel>
-        </DockPanel>
-        
-        
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" Width="100" ToolTip="Resource name: MaterialDesignRaiseButton" 
+                 Click="NextPageClick" Content="Next" />
+        </StackPanel>
+
+
+
+
+
+
+
+
     </Grid>
 </UserControl>
