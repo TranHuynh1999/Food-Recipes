@@ -104,14 +104,14 @@
                         <marterialDesign:PackIcon Kind="Menu" Foreground="#FF313131" Width="40" Height="40" Margin="10"></marterialDesign:PackIcon>
                     </Button>
                 </StackPanel>
-
+                
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10 0 20 0">
                     <TextBox Width="300" Height="40" marterialDesign:HintAssist.Hint="Search" marterialDesign:HintAssist.IsFloating="True" Margin="10 0 0 0" >
                     </TextBox>
                     <marterialDesign:PackIcon Kind="Search" Width="30" Height="30" Margin="15"></marterialDesign:PackIcon>
                 </StackPanel>
             </StackPanel>
-            <Grid x:Name="GridPrincipal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid x:Name="GridPrincipal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.IsSharedSizeScope="True">
             </Grid>
         </WrapPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  >

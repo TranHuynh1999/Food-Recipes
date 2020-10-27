@@ -43,6 +43,9 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=3.2.0.1979, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.3.2.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -73,9 +76,13 @@
     <Compile Include="NewRecipe.xaml.cs">
       <DependentUpon>NewRecipe.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Recipe.cs" />
+    <Compile Include="RecipeDAO.cs" />
+    <Compile Include="RelativeToAbsoluteConverter.cs" />
     <Compile Include="SplashWindow.xaml.cs">
       <DependentUpon>SplashWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Step.cs" />
     <Page Include="Favorite.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -123,6 +130,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Data\Recipes.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -144,7 +152,78 @@
     <Resource Include="Images\Thitgahapnamhuong.jpg" />
     <Resource Include="Images\Tomrangmuoitieu.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Images\ba-chi-1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Images\ba-chi-lac.jpg" />
+    <Resource Include="Images\banh-bach-tuoc.jpg" />
+    <Resource Include="Images\banh-cam-1.jpg" />
+    <Resource Include="Images\banh-cam-2.jpg" />
+    <Resource Include="Images\banh-vung-1.jpg" />
+    <Resource Include="Images\banh-vung-2.jpg" />
+    <Resource Include="Images\banh-vung-3.jpg" />
+    <Resource Include="Images\banh-vung-4.jpg" />
+    <Resource Include="Images\banh-vung-5.jpg" />
+    <Resource Include="Images\bau-2.jpg" />
+    <Resource Include="Images\bau-3.jpg" />
+    <Resource Include="Images\bo-2.jpg" />
+    <Resource Include="Images\bo-mia-nuong.jpg" />
+    <Resource Include="Images\bo-nuong-1.jpg" />
+    <Resource Include="Images\bun-ca-loc.jpg" />
+    <Resource Include="Images\bun.jpg" />
+    <Resource Include="Images\ca-chien-1.jpg" />
+    <Resource Include="Images\ca-chien-3.jpg" />
+    <Resource Include="Images\ca-chien-4.jpg" />
+    <Resource Include="Images\ca-chien-6.jpg" />
+    <Resource Include="Images\ca-chien-7.jpg" />
+    <Resource Include="Images\canh-mang-kho-2.jpg" />
+    <Resource Include="Images\canh-mang-kho.jpg" />
+    <Resource Include="Images\chan-ga-nuong.jpg" />
+    <Resource Include="Images\chan-gio.jpg" />
+    <Resource Include="Images\dua-1.jpg" />
+    <Resource Include="Images\dua-2.jpg" />
+    <Resource Include="Images\dua-3.jpg" />
+    <Resource Include="Images\dua-4.jpg" />
+    <Resource Include="Images\dua-cai-1.jpg" />
+    <Resource Include="Images\dua-cai-2.jpg" />
+    <Resource Include="Images\dua-cai-3.jpg" />
+    <Resource Include="Images\ga-1.jpg" />
+    <Resource Include="Images\ga-2.jpg" />
+    <Resource Include="Images\ga-3.jpg" />
+    <Resource Include="Images\hau-1.jpg" />
+    <Resource Include="Images\hau-2.jpg" />
+    <Resource Include="Images\hau-3.jpg" />
+    <Resource Include="Images\lac-1.jpg" />
+    <Resource Include="Images\lac-2.jpg" />
+    <Resource Include="Images\lac.jpg" />
+    <Resource Include="Images\lang-1.jpg" />
+    <Resource Include="Images\mi-xao-1.jpg" />
+    <Resource Include="Images\mi-xao-3.jpg" />
+    <Resource Include="Images\mi-xao-4.jpg" />
+    <Resource Include="Images\mien-tron-han-quoc.jpg" />
+    <Resource Include="Images\sua-1.jpg" />
+    <Resource Include="Images\sua-2.jpg" />
+    <Resource Include="Images\sua-3.jpg" />
+    <Resource Include="Images\sua-ngo.jpg" />
+    <Resource Include="Images\suon-non-tam-bot-1.jpg" />
+    <Resource Include="Images\suon-non-tam-bot-2.jpg" />
+    <Resource Include="Images\suon-non-tam-bot-3.jpg" />
+    <Resource Include="Images\suon-non-tam-bot-4.jpg" />
+    <Resource Include="Images\suon-xao-chua-ngot-10.jpg" />
+    <Resource Include="Images\suon-xao-chua-ngot.jpg" />
+    <Resource Include="Images\suon-xao-chua-ngot1.jpg" />
+    <Resource Include="Images\tai-du-du.jpg" />
+    <Resource Include="Images\tai-lon-2.jpg" />
+    <Resource Include="Images\tai-lon.jpg" />
+    <Resource Include="Images\thit-bo-vien-3.jpg" />
+    <Resource Include="Images\thit-bo-vien-4.jpg" />
+    <Resource Include="Images\thit-bo-vien.jpg" />
+    <Resource Include="Images\tom-1.jpg" />
+    <Resource Include="Images\tom-2.jpg" />
+    <Resource Include="Images\tom-3.jpg" />
+    <Resource Include="Images\tom-4.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Data\DataInformationInteresting.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

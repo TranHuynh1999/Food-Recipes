@@ -21,43 +21,89 @@ namespace FoodRecipes
     /// </summary>
     public partial class Home : UserControl
     {
+        private int itemPerPage =25 ;
+        private int currentPage = 0;
+        private int totalItem;
+        private int totalPage;
         public Home()
         {
             InitializeComponent();
           
         }
-        class Food:INotifyPropertyChanged
-        {
-            public string Name { get; set; }
-            public string Avatar { get; set; }
 
-            public event PropertyChangedEventHandler PropertyChanged;
-        }
-        class FoodDAO
-        {
-            public static BindingList<Food> GetAllFood()
-            {
-                var result = new BindingList<Food>()
-                {
-                    new Food() { Name = "Bach Tuoc Ngam sa", Avatar = "/Images/Bachtuocngamsa.jpg"},
-                    new Food() { Name = "Ca nuc kho nuoc dua", Avatar = "/Images/Canuckhonuocdua.jpg" },
-                    new Food() { Name = "Chan gio ham", Avatar = "/Images/Changioham.jpg" },
-                    new Food() { Name = "Dau hu sot nam huong", Avatar = "/Images/Dauhusotnamhuong.jpg" },
-                    new Food() { Name = "Ga chien han quoc", Avatar = "/Images/Gachienhanquoc.jpg" },
-                    new Food() { Name = "Muc xao sot cay", Avatar = "/Images/Mucxaosotcay.jpg" },
-                    new Food() { Name = "Nui sot tom", Avatar = "/Images/Nuisottom.jpg" },
-                    new Food() { Name = "Thit ga hap nam huong", Avatar = "/Images/Thitgahapnamhuong.jpg" },
-                    new Food() { Name = "Tom rang muoi tieu", Avatar = "/Images/Tomrangmuoitieu.jpg" }
-                };
-                return result;
-            }
-        }
-        BindingList<Food> _listFood = new BindingList<Food>();
+        //BindingList<Food> _listFood = new BindingList<Food>();
 
+        List<Recipe> recipes;
         private void BindingFood(object sender, RoutedEventArgs e)
         {
-            _listFood = FoodDAO.GetAllFood();
-            DataListview.ItemsSource = _listFood;
+            recipes = RecipeDAO.getAllRecipesFromJson();
+            totalItem = recipes.Count();
+
+            int floor = totalItem / itemPerPage;
+            totalPage = (totalItem % itemPerPage == 0) ? floor : (floor + 1);
+
+            //MessageBox.Show(totalItem.ToString());
+
+            if (recipes != null)
+            {
+                DataListview.ItemsSource = getNextPageItems();
+            }
+        }
+
+
+        int startIndex = 0;
+        private List<Recipe> getNextPageItems()
+        {
+            List<Recipe> recipesOfPage = null;
+            if (recipes != null && currentPage < totalPage)
+            {
+                startIndex = currentPage * itemPerPage;
+
+                if (startIndex < totalItem)
+                {
+                    int count = (totalItem - startIndex) >= itemPerPage ? itemPerPage : (totalItem - startIndex);
+                    recipesOfPage = recipes.GetRange(startIndex, count);
+
+                    currentPage++;
+                }
+
+
+            }
+
+            return recipesOfPage;
+        }
+
+        private void NextPageClick(object sender, RoutedEventArgs e)
+        {
+            List<Recipe> temp = getNextPageItems();
+            if (temp != null)
+            {
+                DataListview.ItemsSource = temp;
+            }
+        }
+
+        private List<Recipe> getPreviousPageItems()
+        {
+            List<Recipe> recipesOfPage = null;
+            if (recipes != null && currentPage > 1)
+            {
+                startIndex -= itemPerPage;
+                recipesOfPage = recipes.GetRange(startIndex, itemPerPage);
+
+                currentPage--;
+
+            }
+
+            return recipesOfPage;
+        }
+
+        private void PreviousPageClick(object sender, RoutedEventArgs e)
+        {
+            List<Recipe> temp = getPreviousPageItems();
+            if (temp != null)
+            {
+                DataListview.ItemsSource = temp;
+            }
         }
     }
 }
