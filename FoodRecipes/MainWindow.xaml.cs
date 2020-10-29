@@ -19,14 +19,18 @@ namespace FoodRecipes
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+   
+ 
+
     public partial class MainWindow : Window
     {
-        
-            public MainWindow()
+
+     
+        public MainWindow()
             {
                 InitializeComponent();
-                //GridPrincipal.Children.Clear();
-                //GridPrincipal.Children.Add(new Home());
+            //GridPrincipal.Children.Clear();
+            //GridPrincipal.Children.Add(new Home());
         }
            
 
@@ -43,6 +47,7 @@ namespace FoodRecipes
             {
                 case 0:
                     GridPrincipal.Children.Clear();
+                    boolSearch = 0;
                     GridPrincipal.Children.Add(new Home());
                     break;
                 case 1:
@@ -71,6 +76,17 @@ namespace FoodRecipes
         private void ButtonClose_Click(object sender, RoutedEventArgs e)
         {
             MainData.Margin = new Thickness(0, 0, 0, 0);
+        }
+        public static String dataSearch;
+        public static int boolSearch = 0;
+        private void ButtonSearch_Click(object sender, RoutedEventArgs e)
+        {
+            dataSearch = Search.Text;
+            GridPrincipal.Children.Clear();
+            Home home = new Home();
+            GridPrincipal.Children.Add(home);
+            Search.Text = null;
+            boolSearch = 1;
         }
     }
     }

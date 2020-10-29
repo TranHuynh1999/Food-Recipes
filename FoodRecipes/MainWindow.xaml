@@ -92,39 +92,38 @@
                     </ListViewItem>
                 </ListView>
             </StackPanel>
-            <Button x:Name="ButtonClose" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="{x:Null}" Width="40" Height="40" Foreground="Black" Background="White" Padding="0" Margin="0,0,10,0" Click="ButtonClose_Click">
+            <Button x:Name="ButtonClose" HorizontalAlignment="Left" VerticalAlignment="Top"   BorderBrush="{x:Null}" Width="40" Height="40" Foreground="Black" Background="White" Padding="0" Margin="10" Click="ButtonClose_Click">
                 <marterialDesign:PackIcon Kind="Close"/>
             </Button>
         </Grid>
-        
-        <Grid x:Name="MainData" Background="Red">
+
+        <Grid x:Name="MainData" Background="AliceBlue" HorizontalAlignment="Stretch">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"></RowDefinition>
-                <RowDefinition Height="4*"></RowDefinition>
+                <RowDefinition Height="9*"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Row="0" Grid.Column="0" x:Name="Header"  Orientation="Horizontal">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 0 40 0">
-                    <Button x:Name="ButtonOpen" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Width="50" Height="50" Padding="0" Click="ButtonOpen_Click">
+            <StackPanel x:Name="Header" Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" >
+                    <Button x:Name="ButtonOpen" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Width="50" Height="50" Padding="0" Margin="0 0 50 0" Click="ButtonOpen_Click">
                         <marterialDesign:PackIcon Kind="Menu" Foreground="#FF313131" Width="40" Height="40" Margin="10"></marterialDesign:PackIcon>
                     </Button>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10 0 20 0">
-                    <TextBox Width="300" Height="40" marterialDesign:HintAssist.Hint="Search" marterialDesign:HintAssist.IsFloating="True" Margin="10 0 0 0" >
-                    </TextBox>
-                    <marterialDesign:PackIcon Kind="Search" Width="30" Height="30" Margin="15"></marterialDesign:PackIcon>
+                    <TextBox  x:Name="Search" Width="450" Height="55" marterialDesign:HintAssist.Hint="Search" marterialDesign:HintAssist.IsFloating="True" Margin="10,10,10,10" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="25" Padding="0"/>
+                    <Button  x:Name="ButtonSearch" Width="50"  Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonSearch_Click">
+                        <marterialDesign:PackIcon Kind="Search" Width="40" Height="40" Foreground="#FF313131" ></marterialDesign:PackIcon>
+                    </Button>
+                    
                 </StackPanel>
             </StackPanel>
 
-            <StackPanel x:Name="GridPrincipal" Grid.Row="1" Grid.Column="0">
+            <Grid x:Name="GridPrincipal" Grid.Row="1" Grid.Column="0" Background="red" >
                 <!--<Grid x:Name="GridPrincipal" HorizontalAlignment="Center" VerticalAlignment="Center" >
                 </Grid>-->
-            </StackPanel>
-            
+            </Grid>
+
         </Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  >
             <Button x:Name="ButtonFechar" Width="40" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray"  Margin="0 0 10 0" Click="ButtonFechar_Click" VerticalAlignment="Top">

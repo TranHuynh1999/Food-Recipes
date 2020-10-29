@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -77,6 +78,30 @@ namespace FoodRecipes
             }
 
             return null;
+        }
+        public static List<Recipe> SearchRecipe(string searchName)
+        {
+
+            List<Recipe> recipes = RecipeDAO.getAllRecipesFromJson();
+            //List<Recipe> tempRecipes = null;
+            //for(int i=0;i<recipes.Count;i++)
+            //{
+            //    Recipe temp = recipes[i];
+            //    if((String.Compare(searchName,temp.Name, true) == 0))
+            //    {
+            //        tempRecipes.Add(temp);
+            //    }
+            //    else
+            //    {
+            //        //Do nothing
+            //    }
+
+            //}
+            var query = from c in recipes
+                        where c.Name == searchName
+                        select c;
+            return query.ToList();
+
         }
 
         public static List<Recipe> getNextPageItems(int pageIndex, int itemPerPage)

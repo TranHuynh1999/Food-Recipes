@@ -21,7 +21,7 @@ namespace FoodRecipes
     /// </summary>
     public partial class Home : UserControl
     {
-        private int itemPerPage =10 ;
+        private int itemPerPage =25 ;
         private int currentPage = 0;
         private int totalItem;
         private int totalPage;
@@ -36,18 +36,38 @@ namespace FoodRecipes
         List<Recipe> recipes;
         private void BindingFood(object sender, RoutedEventArgs e)
         {
-            recipes = RecipeDAO.getAllRecipesFromJson();
-            totalItem = recipes.Count();
-
-            int floor = totalItem / itemPerPage;
-            totalPage = (totalItem % itemPerPage == 0) ? floor : (floor + 1);
-
-            //MessageBox.Show(totalItem.ToString());
-
-            if (recipes != null)
+            if (MainWindow.boolSearch == 0)
             {
-                DataListview.ItemsSource = getNextPageItems();
+                recipes = RecipeDAO.getAllRecipesFromJson();
+                totalItem = recipes.Count();
+
+                int floor = totalItem / itemPerPage;
+                totalPage = (totalItem % itemPerPage == 0) ? floor : (floor + 1);
+
+                //MessageBox.Show(totalItem.ToString());
+
+                if (recipes != null)
+                {
+                    DataListview.ItemsSource = getNextPageItems();
+                }
             }
+            else
+            {
+                recipes = RecipeDAO.SearchRecipe(MainWindow.dataSearch);
+                totalItem = recipes.Count();
+
+                int floor = totalItem / itemPerPage;
+                totalPage = (totalItem % itemPerPage == 0) ? floor : (floor + 1);
+
+                //MessageBox.Show(totalItem.ToString());
+
+                if (recipes != null)
+                {
+                    DataListview.ItemsSource = getNextPageItems();
+                }
+            }
+            
+ 
         }
 
 
@@ -105,5 +125,18 @@ namespace FoodRecipes
                 DataListview.ItemsSource = temp;
             }
         }
+        //public void resultsSearch()
+        //{
+        //    recipes = RecipeDAO.SearchRecipe(MainWindow.dataSearch);
+
+        //    if (recipes != null)
+        //    {
+        //        DataListview.ItemsSource = getNextPageItems();
+        //    }
+        
+           
+
+        //}
+
+        }
     }
-}
