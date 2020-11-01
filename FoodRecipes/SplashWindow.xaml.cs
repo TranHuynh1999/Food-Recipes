@@ -58,6 +58,7 @@ namespace FoodRecipes
         }
         int cout = 0;
         int target = 5;
+
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             cout++;
@@ -74,45 +75,20 @@ namespace FoodRecipes
         }
 
   
+        private readonly String PATH = @"Data\DataInformationInteresting.txt";
         private void readData()
         {
-            //Uri path = new Uri(@"Data.txt", UriKind.RelativeOrAbsolute);
+            RelativeToAbsoluteConverter converter = new RelativeToAbsoluteConverter();
+            String absolutePath = (String)converter.Convert(PATH, null, null, null);
 
-            //string[] lines = System.IO.File.ReadAllLines(path.ToString());
-            //int result = _rng.Next(lines.Length);
-
-            //interestingInformation.Text = lines[result];
             try
             {
-                string stringPath = @"Data\DataInformationInteresting.txt";
-
-                string[] lines = System.IO.File.ReadAllLines(stringPath);
+                string[] lines = System.IO.File.ReadAllLines(absolutePath);
                 int result = _rng.Next(lines.Length);
                 interestingInformation.Text = lines[result];
             }
             catch (Exception) { }
         }
-
-        //public static List<string> docFile(string path)
-        //{
-        //    List<string> result = new List<string>();
-        //    try
-        //    {
-        //        using (StreamReader sr = new StreamReader(path))
-        //        {
-        //            string line;
-        //            while ((line = sr.ReadLine()) != null)
-        //            {
-        //                result.Add(line);
-        //            }
-        //        }
-
-        //    }
-        //    catch (Exception)
-        //    { }
-        //    return result;
-        //}
-
 
         private void Continue_Click(object sender, RoutedEventArgs e)
         {

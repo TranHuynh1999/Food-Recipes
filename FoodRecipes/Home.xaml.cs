@@ -21,7 +21,7 @@ namespace FoodRecipes
     /// </summary>
     public partial class Home : UserControl
     {
-        private int itemPerPage =25 ;
+        private int itemPerPage = 10;
         private int currentPage = 0;
         private int totalItem;
         private int totalPage;
@@ -39,15 +39,15 @@ namespace FoodRecipes
             if (MainWindow.boolSearch == 0)
             {
                 recipes = RecipeDAO.getAllRecipesFromJson();
-                totalItem = recipes.Count();
+                if (recipes != null)
+                {
+                    totalItem = recipes.Count();
 
-                int floor = totalItem / itemPerPage;
-                totalPage = (totalItem % itemPerPage == 0) ? floor : (floor + 1);
+                    int floor = totalItem / itemPerPage;
+                    totalPage = (totalItem % itemPerPage == 0) ? floor : (floor + 1);
 
                 //MessageBox.Show(totalItem.ToString());
 
-                if (recipes != null)
-                {
                     DataListview.ItemsSource = getNextPageItems();
                 }
             }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace FoodRecipes
 {
@@ -17,7 +18,7 @@ namespace FoodRecipes
         //public static int TOTAL_PAGE;
         //public static int PAGE;
 
-        private static string PATH = @"C:\Users\Dell\Documents\GitHub\Food-Recipes\FoodRecipes\Data\Recipes.json";
+        private static string PATH = @"Data\Recipes.json";
         public static void createJson()
         {
             try
@@ -42,10 +43,18 @@ namespace FoodRecipes
         {
             List<Recipe> recipes = null;
 
+            RelativeToAbsoluteConverter converter = new RelativeToAbsoluteConverter();
+            String absolutePath = (String) converter.Convert(PATH, null, null, null);
+
             try
             {
-                string jsonData = System.IO.File.ReadAllText(PATH);
-                recipes = JsonConvert.DeserializeObject<List<Recipe>>(jsonData);
+                using (StreamReader r = new StreamReader(absolutePath))
+                {
+                    string jsonData = r.ReadToEnd();
+                    recipes = JsonConvert.DeserializeObject<List<Recipe>>(jsonData);
+                }
+
+                //string jsonData = System.IO.File.ReadAllText(PATH);
             }
             catch (Exception ex)
             {

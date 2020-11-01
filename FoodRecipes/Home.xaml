@@ -5,8 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FoodRecipes" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="AliceBlue"  Loaded="BindingFood">
-
+             d:DesignHeight="450" d:DesignWidth="800" Background="AliceBlue"  Loaded="BindingFood"
+             
+             >
+    <UserControl.Resources>
+        <local:RelativeToAbsoluteConverter x:Key="converter"/>
+    </UserControl.Resources>
+    
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"/>
@@ -29,7 +34,7 @@
                         <DataTemplate>
                             <materialDesign:Card Cursor="Hand" UniformCornerRadius="10" Margin="0" Padding="0" Width="200">
                                 <StackPanel Background="white">
-                                    <Image Height="150" Width="200" Source="{Binding Avatar}" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+                                    <Image Height="150" Width="200" Source="{Binding Avatar, Converter={StaticResource converter}}" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
                                     <TextBlock Text="{Binding Name}" Foreground="Black"></TextBlock>
                                 </StackPanel>
                             </materialDesign:Card>

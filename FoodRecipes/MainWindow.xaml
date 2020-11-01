@@ -6,7 +6,7 @@
           xmlns:marterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:FoodRecipes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"  WindowStyle="None" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="CanResize">
+        Title="MainWindow" Height="450" Width="800"  WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="CanResize">
     <Window.Resources>
         <Storyboard x:Key="openMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="GridMenu">
@@ -119,7 +119,7 @@
                 </StackPanel>
             </StackPanel>
 
-            <Grid x:Name="GridPrincipal" Grid.Row="1" Grid.Column="0" Background="red" >
+            <Grid x:Name="GridPrincipal" Grid.Row="1" Grid.Column="0">
                 <!--<Grid x:Name="GridPrincipal" HorizontalAlignment="Center" VerticalAlignment="Center" >
                 </Grid>-->
             </Grid>

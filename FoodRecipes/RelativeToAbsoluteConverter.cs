@@ -14,6 +14,7 @@ namespace FoodRecipes
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var relativePath = (string)value;
+
             var currentFolder = AppDomain.CurrentDomain.BaseDirectory;
             return currentFolder + relativePath;
         }
