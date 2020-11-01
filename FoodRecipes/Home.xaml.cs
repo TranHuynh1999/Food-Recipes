@@ -21,7 +21,7 @@ namespace FoodRecipes
     /// </summary>
     public partial class Home : UserControl
     {
-        private int itemPerPage =25 ;
+        private int itemPerPage = 10 ;
         private int currentPage = 0;
         private int totalItem;
         private int totalPage;
@@ -50,6 +50,7 @@ namespace FoodRecipes
                 {
                     DataListview.ItemsSource = getNextPageItems();
                 }
+                pageInfo.Text = $"{currentPage}/{totalPage}";
             }
             else
             {
@@ -65,6 +66,7 @@ namespace FoodRecipes
                 {
                     DataListview.ItemsSource = getNextPageItems();
                 }
+                pageInfo.Text = $"{currentPage}/{totalPage}";
             }
             
  
@@ -99,6 +101,7 @@ namespace FoodRecipes
             if (temp != null)
             {
                 DataListview.ItemsSource = temp;
+                pageInfo.Text = $"{currentPage}/{totalPage}";
             }
         }
 
@@ -123,6 +126,7 @@ namespace FoodRecipes
             if (temp != null)
             {
                 DataListview.ItemsSource = temp;
+                pageInfo.Text = $"{currentPage}/{totalPage}";
             }
         }
         //public void resultsSearch()

@@ -17,7 +17,7 @@ namespace FoodRecipes
         //public static int TOTAL_PAGE;
         //public static int PAGE;
 
-        private static string PATH = @"C:\Users\Dell\Documents\GitHub\Food-Recipes\FoodRecipes\Data\Recipes.json";
+        private static string PATH = @"C:\Users\kptan\Desktop\Food-Recipes-main\FoodRecipes\Data\Recipes.json";
         public static void createJson()
         {
             try
@@ -98,7 +98,7 @@ namespace FoodRecipes
 
             //}
             var query = from c in recipes
-                        where c.Name == searchName
+                        where c.Name.ToLower().Contains(searchName)
                         select c;
             return query.ToList();
 

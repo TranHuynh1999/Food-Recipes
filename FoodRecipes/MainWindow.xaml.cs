@@ -27,10 +27,11 @@ namespace FoodRecipes
 
      
         public MainWindow()
-            {
-                InitializeComponent();
-            //GridPrincipal.Children.Clear();
-            //GridPrincipal.Children.Add(new Home());
+        {
+            InitializeComponent();
+            GridPrincipal.Children.Clear();
+            boolSearch = 0;
+            GridPrincipal.Children.Add(new Home());
         }
            
 

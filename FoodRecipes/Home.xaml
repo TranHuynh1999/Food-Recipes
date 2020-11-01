@@ -39,9 +39,12 @@
             </WrapPanel>
 
         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0">
-            <Button Style="{StaticResource MaterialDesignRaisedButton}" Width="100" ToolTip="Resource name: MaterialDesignRaiseButton" 
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" Width="100" ToolTip="Resource name: MaterialDesignRaiseButton" Margin = "20" 
                  Click="PreviousPageClick">Previous</Button>
-            <Button Style="{StaticResource MaterialDesignRaisedButton}" Width="100" ToolTip="Resource name: MaterialDesignRaiseButton" 
+
+            <TextBlock Name="pageInfo" FontSize="20" VerticalAlignment="Center" Padding="5, 5" ></TextBlock>
+
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" Width="100" ToolTip="Resource name: MaterialDesignRaiseButton" Margin = "20"
                  Click="NextPageClick" Content="Next" />
         </StackPanel>
 
