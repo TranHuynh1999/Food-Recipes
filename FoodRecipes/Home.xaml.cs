@@ -129,18 +129,30 @@ namespace FoodRecipes
                 pageInfo.Text = $"{currentPage}/{totalPage}";
             }
         }
-        //public void resultsSearch()
-        //{
-        //    recipes = RecipeDAO.SearchRecipe(MainWindow.dataSearch);
 
-        //    if (recipes != null)
-        //    {
-        //        DataListview.ItemsSource = getNextPageItems();
-        //    }
-        
-           
-
-        //}
-
+        private void onFavoriteButtonClick(object sender, RoutedEventArgs e)
+        {
+            Recipe selected = (Recipe)DataListview.SelectedItem;
+            if(selected != null)
+            {
+                MessageBox.Show(selected.Name);
+            }
         }
+
+        private void DataListview_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Recipe selectedRecipe = e as Recipe;
+            //MessageBox.Show(selectedRecipe.Name);
+
+            //Recipe selected = (Recipe)DataListview.SelectedItem;
+            //if (selected != null)
+            //{
+            //   MessageBox.Show(selected.Name);
+            //}
+            var recipe = ((sender as ListView).SelectedItem as Recipe);
+            RecipeDetail detailScreen = new RecipeDetail(recipe);
+            detailScreen.ShowDialog();
+        }
+
     }
+}

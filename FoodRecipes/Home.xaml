@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:FoodRecipes" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:FoodRecipes" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="AliceBlue"  Loaded="BindingFood">
 
@@ -18,7 +19,7 @@
         </Grid.ColumnDefinitions>
      
             <WrapPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0">
-                <ListView x:Name="DataListview" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                <ListView x:Name="DataListview" SelectionChanged="DataListview_SelectionChanged" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel Margin="30,0,30,0"></WrapPanel>
@@ -29,9 +30,15 @@
                         <DataTemplate>
                             <materialDesign:Card Cursor="Hand" UniformCornerRadius="10" Margin="0" Padding="0" Width="200">
                                 <StackPanel Background="white">
-                                    <Image Height="150" Width="200" Source="{Binding Avatar}" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
-                                    <TextBlock Text="{Binding Name}" Foreground="Black"></TextBlock>
-                                </StackPanel>
+                                    <Canvas Height="150">
+                                        <Image Canvas.Top="0" Canvas.Left="0" Height="150" Width="200" Source="{Binding Avatar}" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+                                        <Button Click="onFavoriteButtonClick" Canvas.Top="0" Canvas.Right="5" Background="Transparent" x:Name="eye_button" BorderBrush="{x:Null}"  Margin="0" Padding="0" HorizontalAlignment="Left">
+                                            <materialDesign:PackIcon Kind="Heart" Foreground="#bdc3c7" Width="25" Height="25"/>
+                                        </Button>
+                                    </Canvas>
+                                <TextBlock Text="{Binding Name}" Foreground="Black" Padding="5"/>
+
+                            </StackPanel>
                             </materialDesign:Card>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -47,13 +54,6 @@
             <Button Style="{StaticResource MaterialDesignRaisedButton}" Width="100" ToolTip="Resource name: MaterialDesignRaiseButton" Margin = "20"
                  Click="NextPageClick" Content="Next" />
         </StackPanel>
-
-
-
-
-
-
-
 
     </Grid>
 </UserControl>

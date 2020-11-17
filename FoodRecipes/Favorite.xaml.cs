@@ -24,5 +24,15 @@ namespace FoodRecipes
         {
             InitializeComponent();
         }
+
+        private void PreviousPageClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void NextPageClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
