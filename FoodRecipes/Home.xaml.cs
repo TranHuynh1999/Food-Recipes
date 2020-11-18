@@ -25,6 +25,7 @@ namespace FoodRecipes
         private int currentPage = 0;
         private int totalItem;
         private int totalPage;
+
         public Home()
         {
             InitializeComponent();
@@ -139,20 +140,34 @@ namespace FoodRecipes
             }
         }
 
-        private void DataListview_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //Recipe selectedRecipe = e as Recipe;
-            //MessageBox.Show(selectedRecipe.Name);
+        //private void DataListview_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    var recipe = ((sender as ListView).SelectedItem as Recipe);
+        //    RecipeDetail detailScreen = new RecipeDetail(recipe);
 
-            //Recipe selected = (Recipe)DataListview.SelectedItem;
-            //if (selected != null)
-            //{
-            //   MessageBox.Show(selected.Name);
-            //}
-            var recipe = ((sender as ListView).SelectedItem as Recipe);
-            RecipeDetail detailScreen = new RecipeDetail(recipe);
-            detailScreen.ShowDialog();
+        //    detailScreen.Handler += Favorite_Handler;
+
+        //    detailScreen.ShowDialog();
+        //}
+
+        private void Favorite_Handler(bool isFavorite)
+        {
+            Recipe recipe = (DataListview.SelectedItem as Recipe);
+            recipe.Favorite = isFavorite;
+            MessageBox.Show(recipe.Name, (isFavorite) ? "true" : "false");
+
+            RecipeDAO.UpdateListRecipes(recipes);
         }
 
+        private void Card_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            //var recipe = ((sender as ListView).SelectedItem as Recipe);
+            var recipe = DataListview.SelectedItem as Recipe;
+            RecipeDetail detailScreen = new RecipeDetail(recipe);
+
+            detailScreen.Handler += Favorite_Handler;
+
+            detailScreen.ShowDialog();
+        }
     }
 }

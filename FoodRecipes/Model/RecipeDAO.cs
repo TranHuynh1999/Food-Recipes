@@ -64,6 +64,42 @@ namespace FoodRecipes
             return recipes;
         }
 
+        public static List<Recipe> getFavoriteRecipesFromJson()
+        {
+            List<Recipe> recipes = null;
+            List<Recipe> favoriteRecipes = new List<Recipe>();
+
+            RelativeToAbsoluteConverter converter = new RelativeToAbsoluteConverter();
+            String absolutePath = (String)converter.Convert(PATH, null, null, null);
+
+            try
+            {
+                using (StreamReader r = new StreamReader(absolutePath))
+                {
+                    string jsonData = r.ReadToEnd();
+                    recipes = JsonConvert.DeserializeObject<List<Recipe>>(jsonData);
+                }
+
+                if(recipes != null)
+                {
+                    foreach(Recipe recipe in recipes)
+                    {
+                        if (recipe.Favorite)
+                            favoriteRecipes.Add(recipe);
+                    }
+                }
+
+                //string jsonData = System.IO.File.ReadAllText(PATH);
+            }
+            catch (Exception ex)
+            {
+                favoriteRecipes = null;
+                Debug.WriteLine(ex.ToString());
+            }
+
+            return favoriteRecipes;
+        }
+
         public static string AddRecipe(Recipe recipe)
         {
             try
@@ -96,6 +132,27 @@ namespace FoodRecipes
                         select c;
             return query.ToList();
 
+        }
+
+        public static void UpdateListRecipes(List<Recipe> recipes)
+        {
+            RelativeToAbsoluteConverter converter = new RelativeToAbsoluteConverter();
+            String absolutePath = (String)converter.Convert(PATH, null, null, null);
+
+            try
+            {
+                using (StreamWriter r = new StreamWriter(absolutePath))
+                {
+                    string json = JsonConvert.SerializeObject(recipes, Formatting.Indented);
+                    //System.IO.File.WriteAllText(PATH, json, Encoding.UTF8);
+                    r.Write(json);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
         }
 
         public static List<Recipe> getNextPageItems(int pageIndex, int itemPerPage)

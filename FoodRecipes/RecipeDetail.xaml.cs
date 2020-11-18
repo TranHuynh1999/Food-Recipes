@@ -29,9 +29,13 @@ namespace FoodRecipes
         }
 
         int currentStep = 0;
+        bool isFavorite = false;
         
         private void ShowRecipeDetail()
         {
+            isFavorite = this.SelectedRecipe.Favorite;
+            favoriteIcon.Foreground = (isFavorite) ? Brushes.Red : Brushes.Gray;
+
             RecipeNameTextBlock.Text = this.SelectedRecipe.Name + "\n";
 
             foreach(String s in SelectedRecipe.Ingredients)
@@ -86,6 +90,24 @@ namespace FoodRecipes
                 {
                     Debug.WriteLine(ex.StackTrace);
                 }
+            }
+        }
+
+        public delegate void MyDeligateType(bool isFavorite);
+        public event MyDeligateType Handler;
+
+        private void onFavoriteButtonClick(object sender, RoutedEventArgs e)
+        {
+            isFavorite = !isFavorite;
+            favoriteIcon.Foreground = (isFavorite) ? Brushes.Red : Brushes.Gray;
+            
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (Handler != null)
+            {
+                Handler(isFavorite);
             }
         }
     }

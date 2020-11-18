@@ -19,7 +19,7 @@
         </Grid.ColumnDefinitions>
      
             <WrapPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0">
-                <ListView x:Name="DataListview" SelectionChanged="DataListview_SelectionChanged" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                <ListView x:Name="DataListview" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel Margin="30,0,30,0"></WrapPanel>
@@ -28,11 +28,11 @@
 
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <materialDesign:Card Cursor="Hand" UniformCornerRadius="10" Margin="0" Padding="0" Width="200">
-                                <StackPanel Background="white">
+                        <materialDesign:Card Cursor="Hand" UniformCornerRadius="10" Margin="0" Padding="0" Width="200" MouseDoubleClick="Card_MouseDoubleClick">
+                            <StackPanel Background="white">
                                     <Canvas Height="150">
                                         <Image Canvas.Top="0" Canvas.Left="0" Height="150" Width="200" Source="{Binding Avatar}" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
-                                        <Button Click="onFavoriteButtonClick" Canvas.Top="0" Canvas.Right="5" Background="Transparent" x:Name="eye_button" BorderBrush="{x:Null}"  Margin="0" Padding="0" HorizontalAlignment="Left">
+                                        <Button Canvas.Top="0" Canvas.Right="5" Background="Transparent" x:Name="eye_button" BorderBrush="{x:Null}"  Margin="0" Padding="0" HorizontalAlignment="Left">
                                             <materialDesign:PackIcon Kind="Heart" Foreground="#bdc3c7" Width="25" Height="25"/>
                                         </Button>
                                     </Canvas>

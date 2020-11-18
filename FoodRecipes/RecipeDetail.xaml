@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FoodRecipes"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="RecipeDetail" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="RecipeDetail" Height="450" Width="800" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
     <DockPanel>
         <Button DockPanel.Dock="Left" Click="PreStep_Button_Click" Style="{StaticResource MaterialDesignIconButton}" Width="100" ToolTip="Resource name: MaterialDesignRaiseButton" Margin = "20">
             <materialDesign:PackIcon Kind="LessThan" Foreground="#bdc3c7" Width="25" Height="25"/>
@@ -14,12 +14,18 @@
         <Button DockPanel.Dock="Right"  Click="NextStep_Button_Click" Style="{StaticResource MaterialDesignIconButton}" Width="100" ToolTip="Resource name: MaterialDesignRaiseButton" Margin="20">
             <materialDesign:PackIcon Kind="GreaterThan" Foreground="#bdc3c7" Width="25" Height="25"/>
         </Button>
-        <StackPanel>
-            <TextBlock Name="RecipeNameTextBlock"/>
-            <TextBlock>Nguyên liệu:</TextBlock>
-            <TextBlock Name="IngredientTextBlock"/>
-            <TextBlock Name="StepDescriptionTextBlock"/>
-            <Image x:Name="StepImage"/>
-        </StackPanel>
+            
+            <StackPanel>
+                <Canvas Height="30" >
+                    <TextBlock Canvas.Top="0" Canvas.Left="0" Name="RecipeNameTextBlock" FontSize="20" TextWrapping="Wrap"/>
+                    <Button Click="onFavoriteButtonClick" Canvas.Top="0" Canvas.Right="5" Background="Transparent" x:Name="favoriteButton" BorderBrush="{x:Null}"  Margin="0" Padding="0" HorizontalAlignment="Left">
+                        <materialDesign:PackIcon Name="favoriteIcon" Kind="Heart" Foreground="#bdc3c7" Width="25" Height="25"/>
+                    </Button>
+                </Canvas>
+                <TextBlock TextWrapping="Wrap" FontSize="14">Nguyên liệu:</TextBlock>
+                <TextBlock Name="IngredientTextBlock" TextWrapping="Wrap" FontSize="12"/>
+            <TextBlock Name="StepDescriptionTextBlock" TextWrapping="Wrap" FontSize="12"/>
+                <Image x:Name="StepImage"/>
+            </StackPanel>
     </DockPanel>
 </Window>
