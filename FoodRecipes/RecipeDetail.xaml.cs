@@ -110,5 +110,7 @@ namespace FoodRecipes
                 Handler(isFavorite);
             }
         }
+
+
     }
 }

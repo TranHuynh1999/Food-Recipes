@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:FoodRecipes"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
         Title="RecipeDetail" Height="450" Width="800" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
     <DockPanel>
         <Button DockPanel.Dock="Left" Click="PreStep_Button_Click" Style="{StaticResource MaterialDesignIconButton}" Width="100" ToolTip="Resource name: MaterialDesignRaiseButton" Margin = "20">

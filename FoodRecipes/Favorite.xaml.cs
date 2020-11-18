@@ -108,5 +108,25 @@ namespace FoodRecipes
                 favoritePagingInfo.Text = $"{currentPage}/{totalPage}";
             }
         }
+
+        private void Favorite_Handler(bool isFavorite)
+        {
+            Recipe recipe = (FavoriteListView.SelectedItem as Recipe);
+            recipe.Favorite = isFavorite;
+            //MessageBox.Show(recipe.Name, (isFavorite) ? "true" : "false");
+
+            //RecipeDAO.UpdateListRecipes(recipes);
+        }
+
+        private void Card_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            //var recipe = ((sender as ListView).SelectedItem as Recipe);
+            var recipe = FavoriteListView.SelectedItem as Recipe;
+            RecipeDetail detailScreen = new RecipeDetail(recipe);
+
+            detailScreen.Handler += Favorite_Handler;
+
+            detailScreen.ShowDialog();
+        }
     }
 }

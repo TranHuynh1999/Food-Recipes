@@ -27,7 +27,7 @@
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <materialDesign:Card Cursor="Hand" UniformCornerRadius="10" Margin="0" Padding="0" Width="200">
+                        <materialDesign:Card Cursor="Hand" UniformCornerRadius="10" Margin="0" Padding="0" Width="200" MouseDoubleClick="Card_MouseDoubleClick">
                             <StackPanel Background="white">
                                 <Image Height="150" Width="200" Source="{Binding Avatar}" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
                                 <TextBlock Text="{Binding Name}" Foreground="Black" Padding="10"></TextBlock>

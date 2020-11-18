@@ -153,10 +153,13 @@ namespace FoodRecipes
         private void Favorite_Handler(bool isFavorite)
         {
             Recipe recipe = (DataListview.SelectedItem as Recipe);
-            recipe.Favorite = isFavorite;
-            MessageBox.Show(recipe.Name, (isFavorite) ? "true" : "false");
+            if(recipe.Favorite != isFavorite)
+            {
+                recipe.Favorite = isFavorite;
+                RecipeDAO.UpdateListRecipes(recipes);
+            }
+            //MessageBox.Show(recipe.Name, (isFavorite) ? "true" : "false");
 
-            RecipeDAO.UpdateListRecipes(recipes);
         }
 
         private void Card_MouseDoubleClick(object sender, MouseButtonEventArgs e)
