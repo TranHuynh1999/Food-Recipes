@@ -25,8 +25,8 @@
                 </Canvas>
                 <TextBlock TextWrapping="Wrap" FontSize="14">Nguyên liệu:</TextBlock>
                 <TextBlock Name="IngredientTextBlock" TextWrapping="Wrap" FontSize="12"/>
-            <TextBlock Name="StepDescriptionTextBlock" TextWrapping="Wrap" FontSize="12"/>
-                <Image x:Name="StepImage"/>
+                <TextBlock Name="StepDescriptionTextBlock" TextWrapping="Wrap" FontSize="12"/>
+                <Image x:Name="StepImage" Height="100"/>
             </StackPanel>
     </DockPanel>
 </Window>

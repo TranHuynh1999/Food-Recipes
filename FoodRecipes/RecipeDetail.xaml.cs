@@ -45,7 +45,9 @@ namespace FoodRecipes
             StepDescriptionTextBlock.Text = SelectedRecipe.Step[currentStep].Description;
             try
             {
-                var image = new BitmapImage(new Uri(SelectedRecipe.Step[currentStep].Images));
+                RelativeToAbsoluteConverter converter = new RelativeToAbsoluteConverter();
+                String absolutePath = (String)converter.Convert(SelectedRecipe.Step[currentStep].Images, null, null, null);
+                var image = new BitmapImage(new Uri(absolutePath));
                 StepImage.Source = image;
             }
             catch(Exception ex)
@@ -64,7 +66,9 @@ namespace FoodRecipes
 
                 try
                 {
-                    var image = new BitmapImage(new Uri(SelectedRecipe.Step[currentStep].Images));
+                    RelativeToAbsoluteConverter converter = new RelativeToAbsoluteConverter();
+                    String absolutePath = (String)converter.Convert(SelectedRecipe.Step[currentStep].Images, null, null, null);
+                    var image = new BitmapImage(new Uri(absolutePath));
                     StepImage.Source = image;
                 }
                 catch (Exception ex)
@@ -83,7 +87,9 @@ namespace FoodRecipes
 
                 try
                 {
-                    var image = new BitmapImage(new Uri(SelectedRecipe.Step[currentStep].Images));
+                    RelativeToAbsoluteConverter converter = new RelativeToAbsoluteConverter();
+                    String absolutePath = (String)converter.Convert(SelectedRecipe.Step[currentStep].Images, null, null, null);
+                    var image = new BitmapImage(new Uri(absolutePath));
                     StepImage.Source = image;
                 }
                 catch (Exception ex)
