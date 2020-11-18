@@ -69,7 +69,7 @@ namespace FoodRecipes
                 }
             }
         }
-
+        RelativeToAbsoluteConverter converter = new RelativeToAbsoluteConverter();
         private void NextStep_Button_Click(object sender, RoutedEventArgs e)
         {
             if (currentStep < SelectedRecipe.Step.Count - 1)
@@ -87,6 +87,11 @@ namespace FoodRecipes
                     Debug.WriteLine(ex.StackTrace);
                 }
             }
+        }
+
+        private void ButtonFechar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

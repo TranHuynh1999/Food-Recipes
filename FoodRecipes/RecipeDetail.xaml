@@ -3,23 +3,32 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:marterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:FoodRecipes"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="RecipeDetail" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="RecipeDetail" Height="450" Width="800" WindowStartupLocation="CenterScreen"
+        WindowStyle="None">
+    
     <DockPanel>
-        <Button DockPanel.Dock="Left" Click="PreStep_Button_Click" Style="{StaticResource MaterialDesignIconButton}" Width="100" ToolTip="Resource name: MaterialDesignRaiseButton" Margin = "20">
+        <StackPanel HorizontalAlignment="Right" DockPanel.Dock="Top">
+            <Button x:Name="ButtonFechar" Width="40" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray"  Margin="0 0 10 0" Click="ButtonFechar_Click" VerticalAlignment="Top">
+                <marterialDesign:PackIcon Kind="Power" Width="30" Height="30" ></marterialDesign:PackIcon>
+            </Button>
+        </StackPanel>
+        <Button DockPanel.Dock="Left" Click="PreStep_Button_Click" Style="{StaticResource MaterialDesignIconButton}" Width="50" ToolTip="Resource name: MaterialDesignRaiseButton" Margin = "20">
             <materialDesign:PackIcon Kind="LessThan" Foreground="#bdc3c7" Width="25" Height="25"/>
         </Button>
-        <Button DockPanel.Dock="Right"  Click="NextStep_Button_Click" Style="{StaticResource MaterialDesignIconButton}" Width="100" ToolTip="Resource name: MaterialDesignRaiseButton" Margin="20">
+        <Button DockPanel.Dock="Right"  Click="NextStep_Button_Click" Style="{StaticResource MaterialDesignIconButton}" Width="50" ToolTip="Resource name: MaterialDesignRaiseButton" Margin="20">
             <materialDesign:PackIcon Kind="GreaterThan" Foreground="#bdc3c7" Width="25" Height="25"/>
         </Button>
         <StackPanel>
-            <TextBlock Name="RecipeNameTextBlock"/>
+            <TextBlock Name="RecipeNameTextBlock" FontSize="23" TextWrapping="Wrap"/>
             <TextBlock>Nguyên liệu:</TextBlock>
-            <TextBlock Name="IngredientTextBlock"/>
-            <TextBlock Name="StepDescriptionTextBlock"/>
+            <TextBlock Name="IngredientTextBlock" TextWrapping="Wrap"/>
+            <TextBlock Name="StepDescriptionTextBlock" TextWrapping="Wrap"/>
             <Image x:Name="StepImage"/>
         </StackPanel>
+       
     </DockPanel>
 </Window>

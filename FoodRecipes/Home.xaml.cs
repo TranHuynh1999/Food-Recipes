@@ -138,7 +138,7 @@ namespace FoodRecipes
                 MessageBox.Show(selected.Name);
             }
         }
-
+       
         private void DataListview_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Recipe selectedRecipe = e as Recipe;
