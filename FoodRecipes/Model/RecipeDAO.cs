@@ -17,7 +17,11 @@ namespace FoodRecipes
         //public static int TOTAL_PAGE;
         //public static int PAGE;
 
+<<<<<<< Updated upstream:FoodRecipes/Model/RecipeDAO.cs
         private static string PATH = @"Data\Recipes.json";
+=======
+        private static string PATH = @"C:\Users\Dell\Documents\GitHub\Food-Recipes\FoodRecipes\Data\Recipes.json";
+>>>>>>> Stashed changes:FoodRecipes/RecipeDAO.cs
         public static void createJson()
         {
             try
@@ -64,8 +68,9 @@ namespace FoodRecipes
             return recipes;
         }
 
-        public static string AddRecipe(Recipe recipe)
+        public static bool AddRecipe(Recipe recipe)
         {
+            bool result;
             try
             {
                 List<Recipe> recipes = getAllRecipesFromJson();
@@ -78,14 +83,15 @@ namespace FoodRecipes
                 string json = JsonConvert.SerializeObject(recipes, Formatting.Indented);
                 System.IO.File.WriteAllText(PATH, json, Encoding.UTF8);
 
-                return json;
+                result = true;
             }
             catch(Exception ex)
             {
+                result = false;
                 Debug.WriteLine(ex.ToString());
             }
 
-            return null;
+            return result ;
         }
         public static List<Recipe> SearchRecipe(string searchName)
         {

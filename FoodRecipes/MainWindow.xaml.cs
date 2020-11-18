@@ -58,6 +58,7 @@ namespace FoodRecipes
                 case 2:
                     GridPrincipal.Children.Clear();
                     GridPrincipal.Children.Add(new NewRecipe());
+                    Header.Children.Clear();
                     break;
                 default:
                     break;

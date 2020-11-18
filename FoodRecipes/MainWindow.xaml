@@ -49,7 +49,7 @@
                 </TransformGroup>
             </Grid.RenderTransform>
             <StackPanel>
-                <Image Height="140" Source="Images/Background.jpg" Stretch="Fill"/>
+                <Image Height="140" Source="Images/Background.jpg" Stretch="Fill" RenderOptions.BitmapScalingMode="HighQuality"/>
                 <marterialDesign:TransitioningContent x:Name="TransitioningContenSlide" OpeningEffect="{marterialDesign:TransitionEffect SlideinFromLeft, Duration=0:0:0.2}">
                     <Grid  x:Name="GridCorsor" Margin="0 0 0 0" ></Grid>
                 </marterialDesign:TransitioningContent>
@@ -111,15 +111,21 @@
                     <Button x:Name="ButtonOpen" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Width="50" Height="50" Padding="0" Margin="0 0 50 0" Click="ButtonOpen_Click">
                         <marterialDesign:PackIcon Kind="Menu" Foreground="#FF313131" Width="40" Height="40" Margin="10"></marterialDesign:PackIcon>
                     </Button>
-                    <TextBox  x:Name="Search" Width="450" Height="55" marterialDesign:HintAssist.Hint="Search" marterialDesign:HintAssist.IsFloating="True" Margin="10,0,10,10" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="25" Padding="0"/>
+                    <TextBox  x:Name="Search" Width="450" Height="55" marterialDesign:HintAssist.Hint="Search" marterialDesign:HintAssist.IsFloating="True" 
+                              Margin="10,-3,10,7.2" VerticalAlignment="Bottom" HorizontalAlignment="Center"  FontSize="25" 
+                              Padding="0"
+                              />
                     <Button  x:Name="ButtonSearch" Width="50"  Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonSearch_Click">
                         <marterialDesign:PackIcon Kind="Search" Width="40" Height="40" Foreground="#FF313131" ></marterialDesign:PackIcon>
                     </Button>
-                    
+
                 </StackPanel>
             </StackPanel>
 
             <Grid x:Name="GridPrincipal" Grid.Row="1" Grid.Column="0" Background="LightGray" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
                 <!--<Grid x:Name="GridPrincipal" HorizontalAlignment="Center" VerticalAlignment="Center" >
                 </Grid>-->
             </Grid>

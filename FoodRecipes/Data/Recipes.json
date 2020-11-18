@@ -501,7 +501,7 @@
       "3 tép tỏi, băm nhỏ",
       "1/2 muỗng cà phê gừng băm nhỏ",
       "3 quả ớt Thái, xắt nhỏ",
-      "1/4 muỗng cà phê hạt tiêu đen",
+      "1/4 muỗng cà phê hạt tiêu đen"
     ],
     "VideoLink": "",
     "Favorite": false
@@ -548,7 +548,7 @@
       "3 tép tỏi, băm nhỏ",
       "1/2 muỗng cà phê gừng băm nhỏ",
       "3 quả ớt Thái, xắt nhỏ",
-      "1/4 muỗng cà phê hạt tiêu đen",
+      "1/4 muỗng cà phê hạt tiêu đen"
     ],
     "VideoLink": "",
     "Favorite": false
@@ -1008,6 +1008,177 @@
       "Gừng tươi: 50 gram"
     ],
     "VideoLink": "",
+    "Favorite": false
+  },
+  {
+    "Name": "Bánh vừng cười",
+    "Avatar": "Images/banh-vung-5.jpg",
+    "Step": null,
+    "Ingredients": [
+      "300g bột mỳ",
+      "1,5 thìa cafe bột nổi (baking powder)",
+      "1 thìa cafe sữa bột",
+      "Một nhúm muối",
+      "150g đường kính",
+      "50ml nước ấm",
+      "2 thìa cafe dầu ăn",
+      "1 quả trứng",
+      "1 chén vừng trắng"
+    ],
+    "VideoLink": "",
+    "Favorite": false
+  },
+  {
+    "Name": "Bánh vừng cười",
+    "Avatar": "Images/banh-vung-5.jpg",
+    "Step": null,
+    "Ingredients": [
+      "300g bột mỳ",
+      "1,5 thìa cafe bột nổi (baking powder)",
+      "1 thìa cafe sữa bột",
+      "Một nhúm muối",
+      "150g đường kính",
+      "50ml nước ấm",
+      "2 thìa cafe dầu ăn",
+      "1 quả trứng",
+      "1 chén vừng trắng"
+    ],
+    "VideoLink": "",
+    "Favorite": false
+  },
+  {
+    "Name": "Bánh vừng cười",
+    "Avatar": "Images/banh-vung-5.jpg",
+    "Step": null,
+    "Ingredients": [
+      "300g bột mỳ",
+      "1,5 thìa cafe bột nổi (baking powder)",
+      "1 thìa cafe sữa bột",
+      "Một nhúm muối",
+      "150g đường kính",
+      "50ml nước ấm",
+      "2 thìa cafe dầu ăn",
+      "1 quả trứng",
+      "1 chén vừng trắng"
+    ],
+    "VideoLink": "",
+    "Favorite": false
+  },
+  {
+    "Name": "Bánh vừng cười",
+    "Avatar": "Images/banh-vung-5.jpg",
+    "Step": null,
+    "Ingredients": [
+      "300g bột mỳ",
+      "1,5 thìa cafe bột nổi (baking powder)",
+      "1 thìa cafe sữa bột",
+      "Một nhúm muối",
+      "150g đường kính",
+      "50ml nước ấm",
+      "2 thìa cafe dầu ăn",
+      "1 quả trứng",
+      "1 chén vừng trắng"
+    ],
+    "VideoLink": "",
+    "Favorite": false
+  },
+  {
+    "Name": "Bánh vừng cười",
+    "Avatar": "Images/banh-vung-5.jpg",
+    "Step": [
+      {
+        "Images": "Images / banh - vung - 2.jpg",
+        "Description": "Thêm dầu ăn vào nhào cho hỗn hợp bột mềm mịn.Nếu dính tay, bạn nên thêm vào khoảng 1 thìa bột mỳ và trộn đều hoặc bọc bằng màng bọc thực phẩm và ủ bột một lúc"
+      }
+    ],
+    "Ingredients": [
+      "300g bột mỳ",
+      "1,5 thìa cafe bột nổi (baking powder)",
+      "1 thìa cafe sữa bột",
+      "Một nhúm muối",
+      "150g đường kính",
+      "50ml nước ấm",
+      "2 thìa cafe dầu ăn",
+      "1 quả trứng",
+      "1 chén vừng trắng"
+    ],
+    "VideoLink": "",
+    "Favorite": false
+  },
+  {
+    "Name": "Món ăn qq",
+    "Avatar": "C:\\Users\\Dell\\Pictures\\bbb.jpg",
+    "Step": [
+      {
+        "Images": "C:\\Users\\Dell\\Pictures\\IMG_0204.HEIC",
+        "Description": "StepDescriptionưewewe"
+      },
+      {
+        "Images": "C:\\Users\\Dell\\Pictures\\IMG_0204.HEIC",
+        "Description": "StepDescriptionưewewe"
+      },
+      {
+        "Images": "C:\\Users\\Dell\\Pictures\\IMG_0204.HEIC",
+        "Description": "StepDescriptionưeweweewew"
+      }
+    ],
+    "Ingredients": [
+      "ingre"
+    ],
+    "VideoLink": "https://www.youtube.com/watch?v=LwGtIzFyUW0&ab_channel=Nguy%C3%AAn",
+    "Favorite": false
+  },
+  {
+    "Name": "Món ăn qq 2",
+    "Avatar": "C:\\Users\\Dell\\Pictures\\18ec56005a3da063f92c.jpg",
+    "Step": [
+      {
+        "Images": "C:\\Users\\Dell\\Pictures\\bbb.jpg",
+        "Description": "StepDescriptionsds"
+      },
+      {
+        "Images": "C:\\Users\\Dell\\Pictures\\bbb.jpg",
+        "Description": "StepDescriptionsdsdsds"
+      }
+    ],
+    "Ingredients": [
+      "ingre"
+    ],
+    "VideoLink": "https://www.youtube.com/watch?v=LwGtIzFyUW0&ab_channel=Nguy%C3%AAn",
+    "Favorite": false
+  },
+  {
+    "Name": "Mẹo muối dưa cải giòn ngon không bị khú",
+    "Avatar": "C:\\tranhuynh\\Lập trình Windows\\1712507_TroChoiDoan\\Source\\Trò chơi đoán chữ\\Trò chơi đoán chữ\\Images\\Andrea Pirlo.jpg",
+    "Step": [
+      {
+        "Images": "C:\\tranhuynh\\Lập trình Windows\\1712507_TroChoiDoan\\Source\\Trò chơi đoán chữ\\Trò chơi đoán chữ\\Images\\Arjen Robben.jpg",
+        "Description": "B1"
+      },
+      {
+        "Images": "C:\\tranhuynh\\Lập trình Windows\\1712507_TroChoiDoan\\Source\\Trò chơi đoán chữ\\Trò chơi đoán chữ\\Images\\Arjen Robben.jpg",
+        "Description": "B2"
+      }
+    ],
+    "Ingredients": [
+      " \"500 g chân gà\","
+    ],
+    "VideoLink": "https://www.youtube.com/watch?v=wq4_z7u5NP8",
+    "Favorite": false
+  },
+  {
+    "Name": "Đỗ Trần Huỳnh",
+    "Avatar": "C:\\tranhuynh\\Lập trình Windows\\1712507_TroChoiDoan\\Source\\Trò chơi đoán chữ\\Trò chơi đoán chữ\\Images\\Francesco Totti.jpg",
+    "Step": [
+      {
+        "Images": "C:\\tranhuynh\\Lập trình Windows\\1712507_TroChoiDoan\\Source\\Trò chơi đoán chữ\\Trò chơi đoán chữ\\Images\\Carles Puyol.jpg",
+        "Description": "dsads\r\nadsads"
+      }
+    ],
+    "Ingredients": [
+      "dsadad\r\nadsad\r\nadasd\r\nads"
+    ],
+    "VideoLink": "https://www.youtube.com/watch?v=LwGtIzFyUW0&ab_channel=Nguy%C3%AAn",
     "Favorite": false
   }
 ]
