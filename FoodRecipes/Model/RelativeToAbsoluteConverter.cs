@@ -9,7 +9,7 @@ using System.Windows.Data;
 
 namespace FoodRecipes
 {
-    class RelativeToAbsoluteConverter : IValueConverter
+    public class RelativeToAbsoluteConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

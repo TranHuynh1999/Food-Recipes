@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FoodRecipes
 {
-    class Recipe
+    public class Recipe
     {
         public string Name { get; set; }
         public string Avatar { get; set; }

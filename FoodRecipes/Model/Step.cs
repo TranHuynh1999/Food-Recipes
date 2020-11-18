@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FoodRecipes
 {
-    class Step
+    public class Step
     {
         public string Images { get; set; }
         public string Description { get; set; }

@@ -11,13 +11,13 @@ using System.Threading.Tasks;
 
 namespace FoodRecipes
 {
-    class RecipeDAO
+    public class RecipeDAO
     {
         //public static int ITEMS_PER_PAGE = 10;
         //public static int TOTAL_PAGE;
         //public static int PAGE;
 
-        private static string PATH = @"C:\Users\kptan\Desktop\Food-Recipes-main\FoodRecipes\Data\Recipes.json";
+        private static string PATH = @"Data\Recipes.json";
         public static void createJson()
         {
             try
@@ -42,10 +42,18 @@ namespace FoodRecipes
         {
             List<Recipe> recipes = null;
 
+            RelativeToAbsoluteConverter converter = new RelativeToAbsoluteConverter();
+            String absolutePath = (String)converter.Convert(PATH, null, null, null);
+
             try
             {
-                string jsonData = System.IO.File.ReadAllText(PATH);
-                recipes = JsonConvert.DeserializeObject<List<Recipe>>(jsonData);
+                using (StreamReader r = new StreamReader(absolutePath))
+                {
+                    string jsonData = r.ReadToEnd();
+                    recipes = JsonConvert.DeserializeObject<List<Recipe>>(jsonData);
+                }
+
+                //string jsonData = System.IO.File.ReadAllText(PATH);
             }
             catch (Exception ex)
             {
@@ -83,20 +91,6 @@ namespace FoodRecipes
         {
 
             List<Recipe> recipes = RecipeDAO.getAllRecipesFromJson();
-            //List<Recipe> tempRecipes = null;
-            //for(int i=0;i<recipes.Count;i++)
-            //{
-            //    Recipe temp = recipes[i];
-            //    if((String.Compare(searchName,temp.Name, true) == 0))
-            //    {
-            //        tempRecipes.Add(temp);
-            //    }
-            //    else
-            //    {
-            //        //Do nothing
-            //    }
-
-            //}
             var query = from c in recipes
                         where c.Name.ToLower().Contains(searchName)
                         select c;
