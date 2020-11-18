@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="600 " Width="1000"  WindowStyle="None" WindowStartupLocation="CenterScreen"  ResizeMode="CanResize">
     <Window.Resources>
+        <local:RelativeToAbsoluteConverter x:Key="converter"/>
         <Storyboard x:Key="openMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="GridMenu">
                 <EasingDoubleKeyFrame  KeyTime="0" Value="0"/>
@@ -49,7 +50,7 @@
                 </TransformGroup>
             </Grid.RenderTransform>
             <StackPanel>
-                <Image Height="140" Source="Images/Background.jpg" Stretch="Fill"/>
+                <Image Height="140" Name="MenuImage" Stretch="Fill"/>
                 <marterialDesign:TransitioningContent x:Name="TransitioningContenSlide" OpeningEffect="{marterialDesign:TransitionEffect SlideinFromLeft, Duration=0:0:0.2}">
                     <Grid  x:Name="GridCorsor" Margin="0 0 0 0" ></Grid>
                 </marterialDesign:TransitioningContent>

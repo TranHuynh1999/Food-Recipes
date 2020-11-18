@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,18 @@ namespace FoodRecipes
         public SplashWindow()
         {
             InitializeComponent();
+            try
+            {
+                string imagePath = @"\Images\Background.jpg";
+                RelativeToAbsoluteConverter converter = new RelativeToAbsoluteConverter();
+                String absolutePath = (String)converter.Convert(imagePath, null, null, null);
+                var image = new BitmapImage(new Uri(absolutePath));
+                BackgroundImage.ImageSource = image;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.StackTrace);
+            }
         }
 
         private void neverShowAgain_Click(object sender, RoutedEventArgs e)

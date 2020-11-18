@@ -12,7 +12,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="Images/Background.jpg">
+            <ImageBrush x:Name="BackgroundImage">
             </ImageBrush>
         </Grid.Background>
         <TextBlock x:Name="interestingInformation" Margin="100,223,250.6,65" Grid.ColumnSpan="2" TextWrapping="Wrap" FontSize="18"/>

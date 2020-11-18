@@ -6,8 +6,11 @@
              xmlns:local="clr-namespace:FoodRecipes" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
+             
              d:DesignHeight="450" d:DesignWidth="800" Background="AliceBlue"  Loaded="BindingFood">
-
+    <UserControl.Resources>
+        <local:RelativeToAbsoluteConverter x:Key="converter"/>
+    </UserControl.Resources>
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"/>
@@ -31,10 +34,8 @@
                         <materialDesign:Card Cursor="Hand" UniformCornerRadius="10" Margin="0" Padding="0" Width="200" MouseDoubleClick="Card_MouseDoubleClick">
                             <StackPanel Background="white">
                                     <Canvas Height="150">
-                                        <Image Canvas.Top="0" Canvas.Left="0" Height="150" Width="200" Source="{Binding Avatar}" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
-                                        <Button Canvas.Top="0" Canvas.Right="5" Background="Transparent" x:Name="eye_button" BorderBrush="{x:Null}"  Margin="0" Padding="0" HorizontalAlignment="Left">
-                                            <materialDesign:PackIcon Kind="Heart" Foreground="#bdc3c7" Width="25" Height="25"/>
-                                        </Button>
+                                        <Image Canvas.Top="0" Canvas.Left="0" Height="150" Width="200" Source="{Binding Avatar, Converter={StaticResource converter}}" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+                                        
                                     </Canvas>
                                 <TextBlock Text="{Binding Name}" Foreground="Black" Padding="5"/>
 

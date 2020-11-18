@@ -3,13 +3,116 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:FoodRecipes"
+             xmlns:local="clr-namespace:FoodRecipes" xmlns:marterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Aquamarine">
-        <TextBlock FontSize="100">
-            New Recipe
-        </TextBlock>
-            
+             d:DesignHeight="450" d:DesignWidth="800" Background="AliceBlue">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition>
+            </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <WrapPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Margin="0 0 10 0">
+            <Button x:Name="ButtonSave"  Width="80" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray"  Margin="0 0 10 0"  VerticalAlignment="Top" Click="ButtonSave_Click">
+                <StackPanel Orientation="Horizontal">
+                    <marterialDesign:PackIcon Kind="ContentSave" Width="30" Height="30" >
+                    </marterialDesign:PackIcon>
+                    <TextBlock Text="Save" Margin="0 5 0 0" />
+                </StackPanel>
+
+            </Button>
+            <Button x:Name="ButtonCancel"  Width="80" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray"  Margin="0 0 10 0"  VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal">
+                    <marterialDesign:PackIcon Kind="Xamarin" Width="30" Height="30" >
+                    </marterialDesign:PackIcon>
+                    <TextBlock Text="Cancel" Margin="0 5 0 0" />
+                </StackPanel>
+            </Button>
+        </WrapPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
+                <TextBox x:Name="Title" Background="White" Width="300" Height="40" Margin="10" TextWrapping="Wrap" marterialDesign:HintAssist.Hint="Title" 
+                         marterialDesign:HintAssist.IsFloating="False" marterialDesign:HintAssist.Foreground="Black"
+                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                          Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}">
+                </TextBox>
+                <TextBox x:Name="Description"  Width="300" Height="150" Margin="10 0 10 10" Background="White"  TextWrapping="Wrap" marterialDesign:HintAssist.Hint="Description" 
+                         marterialDesign:HintAssist.IsFloating="False" marterialDesign:HintAssist.Foreground="Black"
+                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                          Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                         AcceptsReturn="True">
+                </TextBox>
+                <TextBox x:Name="Youtube" Width="300" Height="40" Margin="10 0 10 10"  Background="White"  TextWrapping="Wrap" marterialDesign:HintAssist.Hint="Link Youtube" 
+                         marterialDesign:HintAssist.IsFloating="False" marterialDesign:HintAssist.Foreground="Black"
+                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                          Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" >
+
+                </TextBox>
+                <Label Width="300" Height="150"  Margin="10 0 10 10" BorderBrush="Black"
+                        Background="White"
+                         >
+                    <Image x:Name="AvatarNewRecipe" Stretch="Fill" RenderOptions.BitmapScalingMode="HighQuality">
+                    </Image>
+                </Label>
+
+                <Button x:Name="ButtonAddAvatarNewRecipe"  Width="120" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray"  Margin="0 0 10 0"  VerticalAlignment="Top" Click="ButtonAddAvatarNewRecipe_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <marterialDesign:PackIcon Kind="ImageAdd" Width="30" Height="30" >
+                        </marterialDesign:PackIcon>
+                        <TextBlock Text="Image Avatar" Margin="0 5 0 0" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="StepDescription" Width="200" Height="100" Margin="10" Background="White"  TextWrapping="Wrap" marterialDesign:HintAssist.Hint="Step Description" 
+                         marterialDesign:HintAssist.IsFloating="False" marterialDesign:HintAssist.Foreground="Black"
+                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                          Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                             AcceptsReturn="True">
+
+                    </TextBox>
+                    <Label x:Name="ImageStep" Width="200" Height="100" Margin="10" BorderBrush="Black" Background="White">
+                        <Image Stretch="Fill" Name="newImageStep">
+
+                        </Image>
+                    </Label>
+
+                </StackPanel>
+                <WrapPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Margin="0 0 10 0">
+                    <Button x:Name="ButtonAddImageStep"  Width="110" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray"  Margin="0 0 10 0"  VerticalAlignment="Top" Click="ButtonAddImageStep_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <marterialDesign:PackIcon Kind="ImageAdd" Width="30" Height="30" >
+                            </marterialDesign:PackIcon>
+                            <TextBlock Text="Image Step" Margin="0 5 0 0" />
+                        </StackPanel>
+
+                    </Button>
+                    <Button x:Name="ButtonAddStep"  Width="110" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray"  Margin="0 0 10 0"  VerticalAlignment="Top" Click="ButtonAddStep_Click" >
+                        <StackPanel Orientation="Horizontal">
+                            <marterialDesign:PackIcon Kind="PlusBox" Width="30" Height="30" >
+                            </marterialDesign:PackIcon>
+                            <TextBlock Text="Add Step" Margin="0 5 0 0" />
+                        </StackPanel>
+                    </Button>
+                </WrapPanel>
+                <StackPanel Orientation="Horizontal">
+
+                </StackPanel>
+                <TextBox x:Name="Ingredents" Width="400" Height="220"  Background="White"  TextWrapping="Wrap" marterialDesign:HintAssist.Hint="Ingredients" 
+                         marterialDesign:HintAssist.IsFloating="False" marterialDesign:HintAssist.Foreground="Black"
+                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                          Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" AcceptsReturn="True"
+                         >
+
+                </TextBox>
+
+            </StackPanel>
+        </StackPanel>
+
     </Grid>
 </UserControl>
+    

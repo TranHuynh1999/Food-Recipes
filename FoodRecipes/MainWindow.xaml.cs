@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +33,19 @@ namespace FoodRecipes
             GridPrincipal.Children.Clear();
             boolSearch = 0;
             GridPrincipal.Children.Add(new Home());
+
+            try
+            {
+                string imagePath = @"\Images\Background.jpg";
+                RelativeToAbsoluteConverter converter = new RelativeToAbsoluteConverter();
+                String absolutePath = (String)converter.Convert(imagePath, null, null, null);
+                var image = new BitmapImage(new Uri(absolutePath));
+                MenuImage.Source = image;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.StackTrace);
+            }
         }
            
 
