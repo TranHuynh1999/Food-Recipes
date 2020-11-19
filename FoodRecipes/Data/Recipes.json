@@ -156,49 +156,6 @@
     "Avatar": "Images/banh-vung-5.jpg",
     "Step": [
       {
-        "Images": "Images/bau-2.jpg",
-        "Description": "Hòa tan đường trong nước ấm và đánh tan trứng."
-      },
-      {
-        "Images": "",
-        "Description": "Trong một âu khác trộn chung bột mì, bột nổi, sữa bột, muối rồi sau đó cho hỗn hợp nước đường - trứng ở trên vào."
-      },
-      {
-        "Images": "Images/banh-vung-1.jpg",
-        "Description": "Thêm dầu ăn vào nhào cho hỗn hợp bột mềm mịn. Nếu dính tay, bạn nên thêm vào khoảng 1 thìa bột mỳ và trộn đều hoặc bọc bằng màng bọc thực phẩm và ủ bột một lúc."
-      },
-      {
-        "Images": "Images/banh-vung-2.jpg",
-        "Description": "Sau đó, chia thành 40 phần nhỏ và vo tròn rồi lăn bột qua lớp vừng trắng."
-      },
-      {
-        "Images": "Images/banh-vung-4.jpg",
-        "Description": "Đun thật nóng dầu ăn (khoảng 160 độ C) rồi giảm lửa và cho bột vào chiên. Chú ý lượng dầu phải ngập viên bột, chiên với lửa vừa trong khoảng 3 phút. Khuấy bánh liên tục để chúng vàng đều."
-      },
-      {
-        "Images": "Images/banh-vung-5.jpg",
-        "Description": "Khi bánh có màu vàng nâu thì vớt ra."
-      }
-    ],
-    "Ingredients": [
-      "300g bột mỳ",
-      "1,5 thìa cafe bột nổi (baking powder)",
-      "1 thìa cafe sữa bột",
-      "Một nhúm muối",
-      "150g đường kính",
-      "50ml nước ấm",
-      "2 thìa cafe dầu ăn",
-      "1 quả trứng",
-      "1 chén vừng trắng"
-    ],
-    "VideoLink": "",
-    "Favorite": false
-  },
-  {
-    "Name": "Bánh vừng cười",
-    "Avatar": "Images/banh-vung-5.jpg",
-    "Step": [
-      {
         "Images": "",
         "Description": "Hòa tan đường trong nước ấm và đánh tan trứng."
       },

@@ -140,23 +140,13 @@ namespace FoodRecipes
             }
         }
 
-        //private void DataListview_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    var recipe = ((sender as ListView).SelectedItem as Recipe);
-        //    RecipeDetail detailScreen = new RecipeDetail(recipe);
-
-        //    detailScreen.Handler += Favorite_Handler;
-
-        //    detailScreen.ShowDialog();
-        //}
-
         private void Favorite_Handler(bool isFavorite)
         {
             Recipe recipe = (DataListview.SelectedItem as Recipe);
             if(recipe.Favorite != isFavorite)
             {
                 recipe.Favorite = isFavorite;
-                RecipeDAO.UpdateListRecipes(recipes);
+                RecipeDAO.UpdateListRecipes(recipe);
             }
             //MessageBox.Show(recipe.Name, (isFavorite) ? "true" : "false");
 

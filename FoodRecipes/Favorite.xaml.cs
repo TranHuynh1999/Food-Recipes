@@ -29,27 +29,24 @@ namespace FoodRecipes
         public Favorite()
         {
             InitializeComponent();
-            showList();
+            showFavoriteList();
         }
 
         List<Recipe> favoriteRecipes;
 
-        private void showList()
+        private void showFavoriteList()
         {
             favoriteRecipes = RecipeDAO.getFavoriteRecipesFromJson();
             if(favoriteRecipes != null)
             {
-            totalItem = favoriteRecipes.Count();
-            int floor = totalItem / itemPerPage;
-            totalPage = (totalItem % itemPerPage == 0) ? floor : (floor + 1);
+                currentPage = 0;
+                totalItem = favoriteRecipes.Count();
+                int floor = totalItem / itemPerPage;
+                totalPage = (totalItem % itemPerPage == 0) ? floor : (floor + 1);
 
                 FavoriteListView.ItemsSource = getNextPageItems();
-            favoritePagingInfo.Text = $"{currentPage}/{totalPage}";
+                favoritePagingInfo.Text = $"{currentPage}/{totalPage}";
             }
-
-
-            //MessageBox.Show(totalItem.ToString());
-            
         }
 
         int startIndex = 0;
@@ -113,9 +110,9 @@ namespace FoodRecipes
         {
             Recipe recipe = (FavoriteListView.SelectedItem as Recipe);
             recipe.Favorite = isFavorite;
-            //MessageBox.Show(recipe.Name, (isFavorite) ? "true" : "false");
 
-            //RecipeDAO.UpdateListRecipes(recipes);
+            RecipeDAO.UpdateListRecipes(recipe);
+            showFavoriteList();
         }
 
         private void Card_MouseDoubleClick(object sender, MouseButtonEventArgs e)

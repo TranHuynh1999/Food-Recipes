@@ -136,25 +136,38 @@ namespace FoodRecipes
 
         }
 
-        public static void UpdateListRecipes(List<Recipe> recipes)
+        public static void UpdateListRecipes(Recipe recipe)
         {
-            RelativeToAbsoluteConverter converter = new RelativeToAbsoluteConverter();
-            String absolutePath = (String)converter.Convert(PATH, null, null, null);
-
-            try
+            List<Recipe> recipes = getAllRecipesFromJson();
+            for (int i = 0; i < recipes.Count; ++i)
             {
-                using (StreamWriter r = new StreamWriter(absolutePath))
+                if (recipes[i].Name == recipe.Name)
                 {
-                    string json = JsonConvert.SerializeObject(recipes, Formatting.Indented);
-                    //System.IO.File.WriteAllText(PATH, json, Encoding.UTF8);
-                    r.Write(json);
-                }
+                    recipes[i] = recipe;
 
+                    RelativeToAbsoluteConverter converter = new RelativeToAbsoluteConverter();
+                    String absolutePath = (String)converter.Convert(PATH, null, null, null);
+
+                    try
+                    {
+                        using (StreamWriter r = new StreamWriter(absolutePath))
+                        {
+                            string json = JsonConvert.SerializeObject(recipes, Formatting.Indented);
+                            //System.IO.File.WriteAllText(PATH, json, Encoding.UTF8);
+                            r.Write(json);
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex.ToString());
+                    }
+
+                    break;
+                }
             }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.ToString());
-            }
+
+
         }
 
         public static List<Recipe> getNextPageItems(int pageIndex, int itemPerPage)
