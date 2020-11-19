@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using System.Diagnostics;
 
 namespace FoodRecipes
 {
@@ -30,7 +32,7 @@ namespace FoodRecipes
         {
             Recipe recipe = new Recipe();
             recipe.Name = Title.Text;
-            recipe.Avatar = filePathNewAvatar;
+            recipe.Avatar = "/Images/" + System.IO.Path.GetFileName(filePathNewAvatar);
             recipe.Step = steps;
 
 
@@ -63,6 +65,17 @@ namespace FoodRecipes
                 AvatarNewRecipe.Source = new BitmapImage(new Uri(filePathNewAvatar));
             }
 
+            try
+            {
+                string newDir = AppDomain.CurrentDomain.BaseDirectory + "/Images/";
+                string curFile = System.IO.Path.GetFileName(filePathNewAvatar);
+                string newPathToFile = System.IO.Path.Combine(newDir, curFile);
+                File.Copy(filePathNewAvatar, newPathToFile);
+            } catch(Exception ex)
+            {
+                Debug.WriteLine(ex.StackTrace);
+            }
+
         }
         string filePathNewStepAvatar;
         private void ButtonAddImageStep_Click(object sender, RoutedEventArgs e)
@@ -74,12 +87,24 @@ namespace FoodRecipes
                 filePathNewStepAvatar = screen.FileName;
                 newImageStep.Source = new BitmapImage(new Uri(filePathNewStepAvatar));
             }
+
+            try
+            {
+                string newDir = AppDomain.CurrentDomain.BaseDirectory + "/Images/";
+                string curFile = System.IO.Path.GetFileName(filePathNewStepAvatar);
+                string newPathToFile = System.IO.Path.Combine(newDir, curFile);
+                File.Copy(filePathNewStepAvatar, newPathToFile);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.StackTrace);
+            }
         }
         List<Step> steps = new List<Step>();
         private void ButtonAddStep_Click(object sender, RoutedEventArgs e)
         {
             Step step = new Step();
-            step.Images = filePathNewStepAvatar;
+            step.Images = "/Images/" + System.IO.Path.GetFileName(filePathNewStepAvatar);
             step.Description = StepDescription.Text;
             if (step != null && step.Images != null && step.Description != null)
             {

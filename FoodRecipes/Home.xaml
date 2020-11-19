@@ -22,7 +22,7 @@
         </Grid.ColumnDefinitions>
      
             <WrapPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0">
-                <ListView x:Name="DataListview" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" 
+                <ListView x:Name="DataListview" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>

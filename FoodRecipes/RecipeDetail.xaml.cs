@@ -53,19 +53,14 @@ namespace FoodRecipes
             StepDescriptionTextBlock.Text = $"Bước {currentStep + 1}: " + SelectedRecipe.Step[currentStep].Description;
             try
             {
-                if (SelectedRecipe.Step[currentStep].Images != "") { 
                 RelativeToAbsoluteConverter converter = new RelativeToAbsoluteConverter();
-                String absolutePath = (String)converter.Convert(SelectedRecipe.Step[currentStep].Images, null, null, null);
+                string imagePath = (SelectedRecipe.Step[currentStep].Images != "") ? SelectedRecipe.Step[currentStep].Images : SelectedRecipe.Avatar;
+
+                String absolutePath = (String)converter.Convert(imagePath, null, null, null);
                 var image = new BitmapImage(new Uri(absolutePath));
                 StepImage.Source = image;
-                }
-                else
-                {
-                    StepImage.Source = null;
-                }    
-
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex.StackTrace);
             }
@@ -75,7 +70,6 @@ namespace FoodRecipes
         private void nullclickhandler(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Chưa có video hướng dẫn", "Sorry!");
-            
         }
 
         private void PreStep_Button_Click(object sender, RoutedEventArgs e)
@@ -84,25 +78,15 @@ namespace FoodRecipes
             {
                 currentStep --;
                 StepDescriptionTextBlock.Text = $"Bước {currentStep + 1}: " + SelectedRecipe.Step[currentStep].Description;
-               // StepDescriptionTextBlock.Text = SelectedRecipe.Step[currentStep].Description;
 
                 try
                 {
-                    //RelativeToAbsoluteConverter converter = new RelativeToAbsoluteConverter();
-                    //String absolutePath = (String)converter.Convert(SelectedRecipe.Step[currentStep].Images, null, null, null);
-                    //var image = new BitmapImage(new Uri(absolutePath));
-                    //StepImage.Source = image;
-                    if (SelectedRecipe.Step[currentStep].Images != "")
-                    {
-                        RelativeToAbsoluteConverter converter = new RelativeToAbsoluteConverter();
-                        String absolutePath = (String)converter.Convert(SelectedRecipe.Step[currentStep].Images, null, null, null);
-                        var image = new BitmapImage(new Uri(absolutePath));
-                        StepImage.Source = image;
-                    }
-                    else
-                    {
-                        StepImage.Source = null;
-                    }
+                    RelativeToAbsoluteConverter converter = new RelativeToAbsoluteConverter();
+                    string imagePath = (SelectedRecipe.Step[currentStep].Images != "") ? SelectedRecipe.Step[currentStep].Images : SelectedRecipe.Avatar;
+
+                    String absolutePath = (String)converter.Convert(imagePath, null, null, null);
+                    var image = new BitmapImage(new Uri(absolutePath));
+                    StepImage.Source = image;
                 }
                 catch (Exception ex)
                 {
@@ -116,27 +100,17 @@ namespace FoodRecipes
             if (currentStep < SelectedRecipe.Step.Count - 1)
             {
                 currentStep ++;
-                //StepDescriptionTextBlock.Text = SelectedRecipe.Step[currentStep].Description;
                 StepDescriptionTextBlock.Text = $"Bước {currentStep + 1}: " + SelectedRecipe.Step[currentStep].Description;
 
 
                 try
                 {
-                    //RelativeToAbsoluteConverter converter = new RelativeToAbsoluteConverter();
-                    //String absolutePath = (String)converter.Convert(SelectedRecipe.Step[currentStep].Images, null, null, null);
-                    //var image = new BitmapImage(new Uri(absolutePath));
-                    //StepImage.Source = image;
-                    if (SelectedRecipe.Step[currentStep].Images != "")
-                    {
-                        RelativeToAbsoluteConverter converter = new RelativeToAbsoluteConverter();
-                        String absolutePath = (String)converter.Convert(SelectedRecipe.Step[currentStep].Images, null, null, null);
-                        var image = new BitmapImage(new Uri(absolutePath));
-                        StepImage.Source = image;
-                    }
-                    else
-                    {
-                        StepImage.Source = null;
-                    }
+                    RelativeToAbsoluteConverter converter = new RelativeToAbsoluteConverter();
+                    string imagePath = (SelectedRecipe.Step[currentStep].Images != "") ? SelectedRecipe.Step[currentStep].Images : SelectedRecipe.Avatar;
+
+                    String absolutePath = (String)converter.Convert(imagePath, null, null, null);
+                    var image = new BitmapImage(new Uri(absolutePath));
+                    StepImage.Source = image;
                 }
                 catch (Exception ex)
                 {

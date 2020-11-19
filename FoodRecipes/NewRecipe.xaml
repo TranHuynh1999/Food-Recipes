@@ -39,12 +39,7 @@
                          HorizontalAlignment="Center" VerticalAlignment="Center"
                           Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}">
                 </TextBox>
-                <TextBox x:Name="Description"  Width="300" Height="150" Margin="10 0 10 10" Background="White"  TextWrapping="Wrap" marterialDesign:HintAssist.Hint="Description" 
-                         marterialDesign:HintAssist.IsFloating="False" marterialDesign:HintAssist.Foreground="Black"
-                         HorizontalAlignment="Center" VerticalAlignment="Center"
-                          Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
-                         AcceptsReturn="True">
-                </TextBox>
+                
                 <TextBox x:Name="Youtube" Width="300" Height="40" Margin="10 0 10 10"  Background="White"  TextWrapping="Wrap" marterialDesign:HintAssist.Hint="Link Youtube" 
                          marterialDesign:HintAssist.IsFloating="False" marterialDesign:HintAssist.Foreground="Black"
                          HorizontalAlignment="Center" VerticalAlignment="Center"
@@ -67,6 +62,13 @@
                 </Button>
             </StackPanel>
             <StackPanel Orientation="Vertical">
+                <TextBox x:Name="Ingredents" Width="400" Height="220"  Background="White"  TextWrapping="Wrap" marterialDesign:HintAssist.Hint="Ingredients" 
+                         marterialDesign:HintAssist.IsFloating="False" marterialDesign:HintAssist.Foreground="Black"
+                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                          Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" AcceptsReturn="True"
+                         >
+
+                </TextBox>
                 <StackPanel Orientation="Horizontal">
                     <TextBox x:Name="StepDescription" Width="200" Height="100" Margin="10" Background="White"  TextWrapping="Wrap" marterialDesign:HintAssist.Hint="Step Description" 
                          marterialDesign:HintAssist.IsFloating="False" marterialDesign:HintAssist.Foreground="Black"
@@ -99,16 +101,8 @@
                         </StackPanel>
                     </Button>
                 </WrapPanel>
-                <StackPanel Orientation="Horizontal">
-
-                </StackPanel>
-                <TextBox x:Name="Ingredents" Width="400" Height="220"  Background="White"  TextWrapping="Wrap" marterialDesign:HintAssist.Hint="Ingredients" 
-                         marterialDesign:HintAssist.IsFloating="False" marterialDesign:HintAssist.Foreground="Black"
-                         HorizontalAlignment="Center" VerticalAlignment="Center"
-                          Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" AcceptsReturn="True"
-                         >
-
-                </TextBox>
+                
+                
 
             </StackPanel>
         </StackPanel>

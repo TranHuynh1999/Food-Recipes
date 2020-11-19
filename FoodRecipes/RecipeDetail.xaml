@@ -25,9 +25,9 @@
         <ScrollViewer VerticalScrollBarVisibility="Hidden">
             <StackPanel Margin="0,0,0,30">
                 <Canvas Height="60" >
-                    <TextBlock Canvas.Top="0" Canvas.Left="0" Name="RecipeNameTextBlock" FontSize="22" TextWrapping="Wrap"/>
-                    <TextBlock FontSize="18" Canvas.Top="30">
-                    <Hyperlink Name="YTlink" RequestNavigate="Hyperlink_RequestNavigate">Video hướng dẫn</Hyperlink>
+                    <TextBlock Canvas.Top="0" Canvas.Left="0" Name="RecipeNameTextBlock" FontSize="22" TextWrapping="Wrap" FontWeight="DemiBold"/>
+                    <TextBlock FontSize="16" Canvas.Top="30">
+                        <Hyperlink Name="YTlink" RequestNavigate="Hyperlink_RequestNavigate">Video hướng dẫn</Hyperlink>
                     </TextBlock>
                     <Button Click="onFavoriteButtonClick" Canvas.Top="0" Canvas.Right="5" Background="Transparent" x:Name="favoriteButton" BorderBrush="{x:Null}"  Margin="0" Padding="0" HorizontalAlignment="Left">
                         <materialDesign:PackIcon Name="favoriteIcon" Kind="Heart" Foreground="#bdc3c7" Width="25" Height="25"/>
@@ -38,9 +38,9 @@
                         <TextBlock TextWrapping="Wrap" FontSize="18">Nguyên liệu:</TextBlock>
                         <TextBlock Name="IngredientTextBlock" TextWrapping="Wrap" FontSize="14" Width="350"/>
                     </StackPanel>
-                    <Image x:Name="StepImage" Height="150" Margin="20 0"/>
+                    <Image x:Name="StepImage" Height="200" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
                 </StackPanel>
-                <TextBlock Name="StepDescriptionTextBlock" TextWrapping="Wrap" FontSize="14"/>
+                <TextBlock Name="StepDescriptionTextBlock" TextWrapping="Wrap" FontSize="15" Margin="0,20,0,0"/>
 
             </StackPanel>
         </ScrollViewer>
